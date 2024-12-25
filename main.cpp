@@ -308,6 +308,7 @@ bool propagate_move(int x, int y, bool is_first) {
 int dirs[N][M]{};
 
 int main() {
+    const auto start = chrono::high_resolution_clock::now();
     rho[' '] = 0.01;
     rho['.'] = 1000;
     Fixed g = 0.1;
@@ -427,4 +428,7 @@ int main() {
             }
         }
     }
+    const auto stop = chrono::high_resolution_clock::now();
+    const auto duration = duration_cast<chrono::seconds>(stop - start);
+    cout << duration.count() << "s" << endl;
 }
